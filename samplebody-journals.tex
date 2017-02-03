@@ -1,0 +1,37 @@
+% \cite{Akyildiz-02, Harvard-01,CROSSBOW} and smart homes
+\section{Introduction}
+\paragraph{}
+Our target user population is within the scope of private aviation, airline transportation, and commercial aviation. Pilots, flight engineers, and all patrons of the cockpit are encouraged to utilize our technology. Our aim is to make the sky safe with minimal cost. Anyone who is affected by general aviation will mutually benefit from PlaneSense. Between 2006 and 2015, 165 people died as a result of in-air collisions of airplanes \cite{Boeing}.  This number does not account for planes who lose control or crash while trying to avoid an in-air collision, such as the 2012 case of two planes approaching the runway at the same time, leading to one crashing \cite{brevard}.  While 165 deaths is only about 5\% of the total number of airplane-related deaths in this time period, these types of accidents can be avoided by providing pilots with better tools to be made aware of nearby aircraft.  All pilots should have access to a cheap, safe tool that will give them a quick, intuitive, and accurate survey of their immediate airspace, whether the pilot is flying small private planes or Boeing 757s, carrying hundreds of people.
+
+
+\paragraph{}
+Pilots need to be aware of other aircraft around them. Currently the onboard systems are good, however, they tend to have some systemic flaws that can easily influence an accident. The current solutions range from simply looking outside, utilizing a ground radar with communication to the pilot, and costly, advanced systems like the \textit{Garmin G1000} \cite{Garmin}. Similar to earthbound vehicles, pilots looking at their instrument cluster are less likely to be aware of their surrounding. The easiest example to relate it to is texting and driving. Pilots will lose situational awareness and the risk of an accident will grow exponentially.
+
+
+\paragraph{}
+The most obvious way for a pilot to know that there are other planes close to them is to simply look out their windows, but this has its drawbacks.  Inclement weather, such as fog, can reduce visibility, and simply looking around will lead to blind-spots, much like in a car \cite{LAX06LA056B}. Sight can be quite useful, but is prone to error, and optical illusions, you might not see something small in the distance, even if looking right at it \cite{Ken}. 
+
+
+\paragraph{}
+Developed during World War II, radar was engineered by the United States Navy to detect friendly and enemy aircraft and ships. Today, Radar’s derivatives are used to track planes. The major downfall is that you would need to be in contact with someone on the ground in order to use it. Very rarely, do pilots have this equipped on the plane. The Garmin G1000 is a  glass cockpit solution which replaces instruments with electronics as well as an integrated gps with traffic. Although this is nice, it has three major downfalls. It will either need to be installed as a retrofitted device (for older aircraft) purchased with a brand new aircraft. It also distracts the pilot when making complicated maneuvers such as going in for a landing. Unlike the other solutions, PlaneSense will provide auditory cues to the pilot that indicate nearby aircraft. This would help increase a pilot’s situational awareness, and decrease the cognitive load, for a safer, more pleasant, flight. 
+
+\paragraph{}
+
+Using the magic of 3D audio, we would present the flight crew with a “sixth sense” when it comes to plane safety. Utilizing the flight crews’ existing headsets, we would present audio cues that can signify where other planes and obstructions are in relation to their aircraft. By designing this technology, we aim create a natural way to for pilots to either alter the plane’s course or communicate with the other party to avoid a collision. 
+
+
+\paragraph{}
+To discuss how we will build this software, we will utilize the the Automatic Dependent Surveillance-Broadcast system (ADS-B). This will allow us to capture information about other aircraft in the vicinity. Not every plane is equipped with this equipment, however, by 2020 the Federal Aviation Administration will require all aircraft in US controlled airspace to be equipped with transponders and ADS-B out. This will allow PlaneSense to detect all planes that are equipped with this technology. Aircraft retrieve their position from onboard GPS systems and broadcast their location through the ADS-B out to other aircraft as well as ground stations. PlaneSense will pick up the information from the towers, and create a 3D audio mapping of nearby aircraft. We will also incorporate \textit{Stratux}, a open source traffic detection system to help us process the information from the ADS-B.
+
+
+\paragraph{}
+Our definition of success is when a pilot can be aware of their situational surroundings without having to increase their cognitive workload. If we can emulate a scenario where it feels as natural as turn-by turn GPS navigation, or hearing something coming towards you in real life, then we can count this as a successful project. The pilot would have an idea of where the other planes are, without wasting visual awareness on extraneous instruments. By taking advantage of more of the pilot's senses, we can increase their overall capacity for awareness, and thus, enable safer flying. In order to enable this technology to be widespread, and easily accessible, we aim to allow integration into any stereo pilot headset. 
+
+
+\paragraph{} 
+Our  first major challenge  is integration with the plane’s existing systems. Our solution is take advantage of the open source software, \textit{Stratux}. This will allow us to incorporate our technology at a much cheaper cost. The second major challenge is technical debugging which can be performed in smart aircrafts locally as well camping out by nearby airports. Also, our system design is  capable of detecting more airplanes than the pilot needs to know about. We will need to set a threshold that considers the aircrafts within a adjustable radius. Notably, the system will detect the plane you are flying. Our solution would be to ignore the plane that is within the wingspan of the plane the user is flying. This, among other aspects, would need to be fine tuned for different aircraft and operations. 
+
+
+% Bibliography
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{sample-bibliography}
