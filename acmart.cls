@@ -1064,6 +1064,7 @@ Computing Machinery]
       \g@addto@macro{\@received}{; #1 #2}%
     \fi
   \fi}
+% Remove this to get rid of last line
 \AtEndDocument{%
   \ifx\@received\@empty\else
     \par\bigskip\noindent\small\normalfont\@received\par
@@ -1168,28 +1169,6 @@ Computing Machinery]
   \if@ACM@manuscript
     Manuscript submitted to ACM\\
   \else
-    \if@ACM@authorversion
-        This is the author's version of the work. It is posted here for
-        your personal use. Not for redistribution. The definitive Version
-        of Record was published in
-        \if@ACM@journal
-          \emph{\@journalName}%
-        \else
-          \emph{Proceedings of \acmConference@name, \acmConference@date}%
-        \fi
-        \ifx\@acmDOI\@empty
-        .
-        \else
-          , \@formatdoi{\@acmDOI}.
-        \fi\\
-      \else
-        \if@ACM@journal
-        \else % Conference
-           \@acmISBN
-           \ifx\@acmPrice\@empty.\else\dots\$\@acmPrice\fi\\
-           DOI: \nolinkurl{\@acmDOI}%
-        \fi
-      \fi
     \fi}%
   \endgroup
   \setcounter{footnote}{0}%
@@ -1823,9 +1802,9 @@ Computing Machinery]
     \fancyhead[LO]{\ACM@linecount}%
     \fancyheadoffset[RO,LE]{1.4\@folio@wd}%
   \or % acmtog
-    \fancyfoot[RO,LE]{\footnotesize \@journalName, Vol. \@acmVolume, No.
-    \@acmNumber, Article \@acmArticle.  Publication date:
-    \@acmPubDate.}%
+  % \fancyfoot[RO,LE]{\footnotesize \@journalName, Vol. \@acmVolume, No.
+  % \@acmNumber, Article \@acmArticle.  Publication date:
+  %  \@acmPubDate.}%
     \fancyhead[L]{\ACM@linecount}%
   \else % Conference proceedings
     \fancyhead[L]{\ACM@linecount}%
