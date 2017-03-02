@@ -21,8 +21,12 @@ Developed during World War II, radar was engineered by the United States Navy to
 Using 3D audio, PlaneSense would present the flight crew with a "sixth sense" when it comes to plane safety.  Utilizing the flight crews' existing headsets, PlaneSense would present audio cues that can signify where other planes or obstructions are in relation to their aircraft. Unlike the other solutions, These auditory cues will appear to originate from the direction of nearby aircraft.  This would help increase a pilot's situational awareness, and decrease the cognitive load, for a safer, more pleasant, flight.  PlaneSense creates a natural way to alert pilots so that they can alter the plane's course or otherwise avoid a collision, by immediately and intuitively informing them of another plane's relative location. 
 
 
+
+
 \paragraph{}
 PlaneSense utilizes the  Automatic Dependent Surveillance-Broadcast system (ADS-B) to capture information about other aircraft in the vicinity.  Not every plane has a transponder equipped with ADS-B Out; however, by 2020 the Federal Aviation Administration will require them in all aircraft in US controlled airspace. This allows PlaneSense to detect all planes that are equipped with this technology.  Aircraft retrieve their position from onboard GPS systems and broadcast their location through the ADS-B out to other aircraft as well as ground stations. PlaneSense picks up the information from the towers, and creates a 3D mapping of nearby aircraft to be represented with 3D Audio.  \textit{Stratux}, an open-source aircraft traffic detection system, was used as a basis to interpret the information from the ADS-B.
+PlaneSense will extend the features of \textit{Stratux}, and will provide some basic options,
+such as volume, sounds to play, and maximum distance to detect.
 
 
 \paragraph{}
@@ -35,7 +39,42 @@ By using open-source software to collect and analyze air traffic data, PlaneSens
 This enables more time to be spent on developing the 3D audio aspect of PlaneSense, rather than spent interpreting the format of ADS-B data.
 The second major challenge was technical debugging, which could be performed in smart aircraft locally as well camping out by nearby airports.  PlaneSense is capable of detecting more airplanes than the pilot needs to know about, so a threshold needed to be set that would only alert the pilots of planes within a certain radius.  To avoid this issue, detecting one's own plane as appearing right above oneself, no planes within 100 feet of the PlaneSense device are reported.  This, among other aspects, would need to be fine tuned for different aircraft and operations. 
 
+       \begin{figure}
+         \includegraphics[width=\linewidth]{./sample_ui.png}
+         \caption{A Mock-Up of how the PlaneSense UI will look. For the most part, it involves modifying a few preflight
+           options, and then being left alone for the duration of the flight.}
+         \label{fig:p1}
+       \end{figure}
 
+       
+\section{Methods}
+
+
+\paragraph{}
+	In order to evaluate the effectiveness of PlaneSense, participants were gathered for a study and randomly divided into two groups of even size.  Both groups were instructed to remove the two and eight cards the from two decks of cards.  This task was chosen to give the participants a mentally stimulating task that they had to pay attention to so that they didn't miss a card, similar to the mental effort needed to maintain a steady course in an airplane.
+	While the first group was separating cards from the deck, they were asked to look down at a mockup of a Stratux screen with traffic that a pilot may see while flying.  The participants' simulated flight path was due east.  These participants were asked to identify planes that were within 5 miles of them and to describe the plane's position relative to their own.
+
+        \begin{figure}
+          \includegraphics[width=\linewidth]{./sequence_diagram_for_plane_sense.png}
+          \caption{System and Information Flow For Normal Use}
+          \label{fig:n1}
+        \end{figure}
+
+        \begin{figure}
+          \includegraphics[width=\linewidth]{./sequence_diagram_for_experiment_g2.png}
+          \caption{System and Information Flow For Group One}
+          \label{fig:g1}
+        \end{figure}
+
+        \begin{figure}
+         \includegraphics[width=\linewidth]{./sequence_diagram_for_experiment_g1.png}
+         \caption{System and Information Flow For Group Two}
+         \label{fig:g2}
+       \end{figure}
+
+While the second group was separating cards from the deck, they wore headphones that produced 3D audio cues.
+These cues were beeping tones (C5 - 523.2 Hz) that were localized to appear to originate from the same relative positions of the planes that the first group had to identify, based on Head-Related Transfer Functions from the CIPIC HRTF Database.  The participants were asked to identify the planes' directions based only on audio cues.  They did not need to worry about distance, because PlaneSense only alerts users of planes within 5 miles.
+Participants were timed with a stopwatch to measure how long it took them to identify 3 planes' locations while retrieving all 16 two and eight cards from two decks of cards.  Participants accuracy in sorting the cards was recorded to measure if trying to locate the planes decreased their ability to sort the cards.  The participants were also scored based on their ability to correctly locate other planes.  Participants then rated the mental effort needed to identify the planes while sorting cards via a google form.
 % Bibliography
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{sample-bibliography}
